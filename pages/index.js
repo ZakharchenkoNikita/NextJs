@@ -19,8 +19,29 @@ const data = [
   },
 ];
 
-const HomePage = () => {
-  return <MeetupList meetups={data} />;
+const HomePage = (props) => {
+  return <MeetupList meetups={props.meetups} />;
 };
+
+// Static Site Generation (SSG)
+export const getStaticProps = async () => {
+  // fetch data from API
+  return {
+    props: { meetups: data },
+    // revalidate: 1,
+  };
+};
+
+// Server-side Rendering (SSR)
+// export const getServerSideProps = (context) => {
+//   const req = context.req;
+//   const res = context.res;
+
+//   // fetch data from API
+
+//   return {
+//     props: { meetups: data },
+//   };
+// };
 
 export default HomePage;
