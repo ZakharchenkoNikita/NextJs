@@ -25,10 +25,8 @@ const HomePage = (props) => {
 
 // Static Site Generation (SSG)
 export const getStaticProps = async () => {
-  // fetch data from API
   return {
     props: { meetups: data },
-    // revalidate: 1,
   };
 };
 
